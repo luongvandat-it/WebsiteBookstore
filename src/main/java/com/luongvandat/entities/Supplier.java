@@ -1,7 +1,6 @@
 package com.luongvandat.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,7 +8,6 @@ import java.util.Set;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class Supplier {
     @Id
@@ -21,5 +19,10 @@ public class Supplier {
 
     public Supplier(String supplierName) {
         setSupplierName(supplierName);
+    }
+
+    public Supplier(String supplierName, Set<Book> books) {
+        this.supplierName = supplierName;
+        this.books = books;
     }
 }

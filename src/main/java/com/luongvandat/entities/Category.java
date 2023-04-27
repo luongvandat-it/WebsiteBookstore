@@ -1,7 +1,6 @@
 package com.luongvandat.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,7 +8,6 @@ import java.util.Set;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class Category {
     @Id
@@ -21,5 +19,10 @@ public class Category {
 
     public Category(String categoryName) {
         setCategoryName(categoryName);
+    }
+
+    public Category(String categoryName, Set<Book> books) {
+        this.categoryName = categoryName;
+        this.books = books;
     }
 }

@@ -9,7 +9,6 @@ import java.io.Serializable;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Embeddable
 public class OrderDetailId implements Serializable {
     private String orderId;

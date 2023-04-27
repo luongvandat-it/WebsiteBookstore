@@ -1,6 +1,5 @@
 package com.luongvandat.repositories;
 
-import com.luongvandat.entities.Author;
 import com.luongvandat.entities.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
