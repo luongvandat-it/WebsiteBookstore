@@ -16,6 +16,11 @@ public class BookServicesImpl implements BookServices {
     }
 
     @Override
+    public List<Book> findAll() {
+        return bookRepository.findAll();
+    }
+
+    @Override
     public Book findOneById(String id) {
         return bookRepository.findById(id).orElse(null);
     }
