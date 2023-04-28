@@ -1,7 +1,6 @@
 package com.luongvandat.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,7 +8,6 @@ import java.util.Set;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class Role {
     @Id
@@ -21,5 +19,10 @@ public class Role {
 
     public Role(String roleName) {
         setRoleName(roleName);
+    }
+
+    public Role(String roleName, Set<User_> users) {
+        this.roleName = roleName;
+        this.users = users;
     }
 }

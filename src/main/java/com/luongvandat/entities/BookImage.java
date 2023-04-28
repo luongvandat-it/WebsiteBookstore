@@ -1,13 +1,11 @@
 package com.luongvandat.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class BookImage {
     @Id
@@ -18,4 +16,11 @@ public class BookImage {
     private byte[] image;
     @ManyToOne
     private Book book;
+
+    public BookImage(String imageName, String imageType, byte[] image, Book book) {
+        this.imageName = imageName;
+        this.imageType = imageType;
+        this.image = image;
+        this.book = book;
+    }
 }

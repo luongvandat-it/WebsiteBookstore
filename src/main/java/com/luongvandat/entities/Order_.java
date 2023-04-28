@@ -10,7 +10,6 @@ import java.util.Set;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class Order_ {
     @Id
@@ -26,4 +25,14 @@ public class Order_ {
     private Set<Transaction_> transactions;
     @OneToMany(mappedBy = "order_")
     private Set<OrderDetail> orderDetails;
+
+    public Order_(Date orderDate, String orderNote, String orderDiscount, String orderStatus, User_ user_, Set<Transaction_> transactions, Set<OrderDetail> orderDetails) {
+        this.orderDate = orderDate;
+        this.orderNote = orderNote;
+        this.orderDiscount = orderDiscount;
+        this.orderStatus = orderStatus;
+        this.user_ = user_;
+        this.transactions = transactions;
+        this.orderDetails = orderDetails;
+    }
 }

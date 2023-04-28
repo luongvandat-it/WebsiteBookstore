@@ -1,7 +1,6 @@
 package com.luongvandat.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,7 +8,6 @@ import java.util.Set;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class Author {
     @Id
@@ -21,5 +19,10 @@ public class Author {
 
     public Author(String authorName) {
         setAuthorName(authorName);
+    }
+
+    public Author(String authorName, Set<Book> books) {
+        this.authorName = authorName;
+        this.books = books;
     }
 }

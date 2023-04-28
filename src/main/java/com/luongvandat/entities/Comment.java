@@ -4,13 +4,11 @@ import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class Comment {
     @EmbeddedId
@@ -24,4 +22,12 @@ public class Comment {
     private String commentContent;
     private String commentDate;
     private String commentRating;
+
+    public Comment(User_ user_, Book book, String commentContent, String commentDate, String commentRating) {
+        this.user_ = user_;
+        this.book = book;
+        this.commentContent = commentContent;
+        this.commentDate = commentDate;
+        this.commentRating = commentRating;
+    }
 }
