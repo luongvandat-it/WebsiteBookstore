@@ -17,10 +17,6 @@ public class Publisher {
     @OneToMany(mappedBy = "publisher")
     private Set<Book> books;
 
-    public Publisher(String publisherName) {
-        setPublisherName(publisherName);
-    }
-
     public Publisher(String publisherName, Set<Book> books) {
         this.publisherName = publisherName;
         this.books = books;

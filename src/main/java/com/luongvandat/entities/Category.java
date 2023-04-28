@@ -17,10 +17,6 @@ public class Category {
     @OneToMany(mappedBy = "category")
     private Set<Book> books;
 
-    public Category(String categoryName) {
-        setCategoryName(categoryName);
-    }
-
     public Category(String categoryName, Set<Book> books) {
         this.categoryName = categoryName;
         this.books = books;

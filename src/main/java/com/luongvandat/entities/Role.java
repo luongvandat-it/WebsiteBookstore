@@ -17,10 +17,6 @@ public class Role {
     @OneToMany(mappedBy = "role")
     private Set<User_> users;
 
-    public Role(String roleName) {
-        setRoleName(roleName);
-    }
-
     public Role(String roleName, Set<User_> users) {
         this.roleName = roleName;
         this.users = users;
