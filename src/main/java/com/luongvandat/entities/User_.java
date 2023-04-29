@@ -30,19 +30,4 @@ public class User_ {
     private Set<Order_> orders;
     @OneToMany(mappedBy = "user_")
     private Set<Comment> comments;
-
-    public User_(String userName, String userPassword, String userFirstName, String userLastName, String userPhoneNumber, String userEmail, Date userCreatedDate, Date userUpdatedDate, Role role, Set<ShippingAddress> shippingAddresses, Set<Order_> orders, Set<Comment> comments) {
-        this.userName = userName;
-        this.userPassword = userPassword;
-        this.userFirstName = userFirstName;
-        this.userLastName = userLastName;
-        this.userPhoneNumber = userPhoneNumber;
-        this.userEmail = userEmail;
-        this.userCreatedDate = userCreatedDate;
-        this.userUpdatedDate = userUpdatedDate;
-        this.role = role;
-        this.shippingAddresses = shippingAddresses;
-        this.orders = orders;
-        this.comments = comments;
-    }
 }

@@ -14,9 +14,4 @@ public class Transaction_ {
     private String transactionType;
     @ManyToOne
     private Order_ order_;
-
-    public Transaction_(String transactionType, Order_ order_) {
-        this.transactionType = transactionType;
-        this.order_ = order_;
-    }
 }

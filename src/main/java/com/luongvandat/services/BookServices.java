@@ -5,7 +5,6 @@ import com.luongvandat.entities.Book;
 import java.util.List;
 
 public interface BookServices {
-    List<Book> findAll();
     Book findOneById(String id);
 
     Book add(Book book);

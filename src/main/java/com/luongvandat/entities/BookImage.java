@@ -16,11 +16,4 @@ public class BookImage {
     private byte[] image;
     @ManyToOne
     private Book book;
-
-    public BookImage(String imageName, String imageType, byte[] image, Book book) {
-        this.imageName = imageName;
-        this.imageType = imageType;
-        this.image = image;
-        this.book = book;
-    }
 }
