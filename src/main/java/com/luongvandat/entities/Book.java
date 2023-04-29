@@ -23,7 +23,6 @@ public class Book {
     private double bookWeight;
     private String bookType;
     private String bookLanguage;
-    private int bookQuantity;
     private String bookStatus;
     private String bookSlug;
     private Date bookCreatedDate;
@@ -42,28 +41,4 @@ public class Book {
     private Set<Comment> comments;
     @OneToMany(mappedBy = "book")
     private Set<OrderDetail> orderDetails;
-
-    public Book(double bookPrice, String bookTitle, int bookDiscount, String bookDescription, String bookSize, String bookTranslator, double bookWeight, String bookType, String bookLanguage, int bookQuantity, String bookStatus, String bookSlug, Date bookCreatedDate, Date bookUpdatedDate, Set<BookImage> bookImages, Category category, Publisher publisher, Author author, Supplier supplier, Set<Comment> comments, Set<OrderDetail> orderDetails) {
-        this.bookPrice = bookPrice;
-        this.bookTitle = bookTitle;
-        this.bookDiscount = bookDiscount;
-        this.bookDescription = bookDescription;
-        this.bookSize = bookSize;
-        this.bookTranslator = bookTranslator;
-        this.bookWeight = bookWeight;
-        this.bookType = bookType;
-        this.bookLanguage = bookLanguage;
-        this.bookQuantity = bookQuantity;
-        this.bookStatus = bookStatus;
-        this.bookSlug = bookSlug;
-        this.bookCreatedDate = bookCreatedDate;
-        this.bookUpdatedDate = bookUpdatedDate;
-        this.bookImages = bookImages;
-        this.category = category;
-        this.publisher = publisher;
-        this.author = author;
-        this.supplier = supplier;
-        this.comments = comments;
-        this.orderDetails = orderDetails;
-    }
 }

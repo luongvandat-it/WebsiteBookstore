@@ -22,12 +22,4 @@ public class Comment {
     private String commentContent;
     private String commentDate;
     private String commentRating;
-
-    public Comment(User_ user_, Book book, String commentContent, String commentDate, String commentRating) {
-        this.user_ = user_;
-        this.book = book;
-        this.commentContent = commentContent;
-        this.commentDate = commentDate;
-        this.commentRating = commentRating;
-    }
 }

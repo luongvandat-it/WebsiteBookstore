@@ -16,9 +16,4 @@ public class Author {
     private String authorName;
     @OneToMany(mappedBy = "author")
     private Set<Book> books;
-
-    public Author(String authorName, Set<Book> books) {
-        this.authorName = authorName;
-        this.books = books;
-    }
 }

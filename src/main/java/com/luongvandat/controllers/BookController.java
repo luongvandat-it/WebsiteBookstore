@@ -2,8 +2,6 @@ package com.luongvandat.controllers;
 
 import com.luongvandat.entities.Book;
 import com.luongvandat.services.BookServices;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,11 +15,6 @@ public class BookController {
 
     public BookController(BookServices bookServices) {
         this.bookServices = bookServices;
-    }
-
-    @PostMapping("/findAll")
-    public List<Book> findAll() {
-        return bookServices.findAll();
     }
 
     @PostMapping("/findByName")

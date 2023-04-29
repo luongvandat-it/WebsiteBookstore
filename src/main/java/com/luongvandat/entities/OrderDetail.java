@@ -21,11 +21,4 @@ public class OrderDetail {
     private Book book;
     private int quantity;
     private double price;
-
-    public OrderDetail(Order_ order_, Book book, int quantity, double price) {
-        this.order_ = order_;
-        this.book = book;
-        this.quantity = quantity;
-        this.price = price;
-    }
 }

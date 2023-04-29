@@ -16,9 +16,4 @@ public class Supplier {
     private String supplierName;
     @OneToMany(mappedBy = "supplier")
     private Set<Book> books;
-
-    public Supplier(String supplierName, Set<Book> books) {
-        this.supplierName = supplierName;
-        this.books = books;
-    }
 }
