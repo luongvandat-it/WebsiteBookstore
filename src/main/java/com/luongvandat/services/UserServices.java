@@ -10,4 +10,6 @@ public interface UserServices {
     User_ deleteById(String id);
 
     User_ update(User_ user_);
+
+    User_ findUser_ByUserEmail(String email);
 }
