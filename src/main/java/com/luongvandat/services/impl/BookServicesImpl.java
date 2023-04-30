@@ -41,4 +41,8 @@ public class BookServicesImpl implements BookServices {
     public List<Book> findBooksByBookTitleContainsIgnoreCase(String bookTitle) {
         return bookRepository.findBooksByBookTitleContainsIgnoreCase(bookTitle);
     }
+
+    public List<Book> findBooksByBookIdBetween(String low, String high) {
+        return bookRepository.findBooksByBookIdBetween(low,high);
+    }
 }

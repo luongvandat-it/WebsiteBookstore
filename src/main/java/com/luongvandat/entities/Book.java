@@ -25,10 +25,9 @@ public class Book {
     private String bookLanguage;
     private String bookStatus;
     private String bookSlug;
+    private String bookImage;
     private Date bookCreatedDate;
     private Date bookUpdatedDate;
-    @OneToMany(mappedBy = "book")
-    private Set<BookImage> bookImages;
     @ManyToOne
     private Category category;
     @ManyToOne

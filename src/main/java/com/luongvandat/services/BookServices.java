@@ -14,4 +14,5 @@ public interface BookServices {
     Book update(Book book);
 
     List<Book> findBooksByBookTitleContainsIgnoreCase(String bookTitle);
+    List<Book> findBooksByBookIdBetween(String low, String high);
 }

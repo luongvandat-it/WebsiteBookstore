@@ -34,4 +34,9 @@ public class UserServicesImpl implements UserServices {
     public User_ update(User_ user_) {
         return userRepository.save(user_);
     }
+
+    @Override
+    public User_ findUser_ByUserEmail(String email) {
+        return userRepository.findUser_ByUserEmail(email);
+    }
 }
