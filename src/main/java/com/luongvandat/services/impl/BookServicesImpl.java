@@ -43,6 +43,10 @@ public class BookServicesImpl implements BookServices {
     }
 
     public List<Book> findBooksByBookIdBetween(String low, String high) {
-        return bookRepository.findBooksByBookIdBetween(low,high);
+        return bookRepository.findBooksByBookIdBetween(low, high);
+    }
+
+    public Book findBookByBookTitleIgnoreCase(String bookTitle) {
+        return bookRepository.findBookByBookTitleIgnoreCase(bookTitle);
     }
 }
