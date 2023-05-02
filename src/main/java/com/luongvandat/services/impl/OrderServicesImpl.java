@@ -5,6 +5,8 @@ import com.luongvandat.repositories.OrderRepository;
 import com.luongvandat.services.OrderServices;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class OrderServicesImpl implements OrderServices {
     private final OrderRepository orderRepository;
@@ -33,5 +35,10 @@ public class OrderServicesImpl implements OrderServices {
     @Override
     public Order_ update(Order_ order_) {
         return orderRepository.save(order_);
+    }
+
+    @Override
+    public Order_ findOrder_ByOrderDate(Date date) {
+        return orderRepository.findOrder_ByOrderDate(date);
     }
 }
