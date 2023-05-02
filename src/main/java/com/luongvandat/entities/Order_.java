@@ -15,6 +15,7 @@ public class Order_ {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String orderId;
     private Date orderDate;
+    private String shippingAddress;
     private String orderNote;
     private String orderDiscount;
     private String orderStatus;

@@ -34,4 +34,9 @@ public class OrderDetailServicesImpl implements OrderDetailServices {
     public OrderDetail update(OrderDetail orderDetail) {
         return orderDetailRepository.save(orderDetail);
     }
+
+    @Override
+    public OrderDetail saveOrderDetail(double price, int quantity, String bookId, String orderId) {
+        return orderDetailRepository.saveOrderDetail(price, quantity, bookId, orderId);
+    }
 }
