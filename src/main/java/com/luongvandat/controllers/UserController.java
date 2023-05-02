@@ -4,7 +4,6 @@ import com.luongvandat.entities.Role;
 import com.luongvandat.entities.User_;
 import com.luongvandat.services.RoleServices;
 import com.luongvandat.services.UserServices;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,9 +22,9 @@ public class UserController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<User_> addUser(@RequestBody User_ userDto) {
+    public ResponseEntity<String> addUser(@RequestBody User_ userDto) {
         if (userServices.findUser_ByUserEmail(userDto.getUserEmail()) != null) {
-            return new ResponseEntity<>(HttpStatus.CONFLICT);
+            return ResponseEntity.ok("ERROR: User with email " + userDto.getUserEmail() + " already exists.");
         }
 
         User_ user = new User_();
@@ -42,8 +41,6 @@ public class UserController {
         user.setRole(role);
 
         User_ savedUser = userServices.add(user);
-        return ResponseEntity.ok(savedUser);
+        return ResponseEntity.ok("SUCCESS: User with email " + savedUser.getUserEmail() + " has been successfully registered !");
     }
-
-
 }
