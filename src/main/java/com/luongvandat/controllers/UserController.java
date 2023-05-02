@@ -2,25 +2,48 @@ package com.luongvandat.controllers;
 
 import com.luongvandat.entities.Role;
 import com.luongvandat.entities.User_;
+import com.luongvandat.services.RoleServices;
 import com.luongvandat.services.UserServices;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/user_s")
+@RequestMapping("/api/user_s")
 public class UserController {
     private final UserServices userServices;
+    private final RoleServices roleServices;
 
-    public UserController(UserServices userServices) {
+    public UserController(UserServices userServices, RoleServices roleServices) {
         this.userServices = userServices;
+        this.roleServices = roleServices;
     }
 
     @PostMapping("/add")
-    public ResponseEntity<User_> addOrUpdate(@RequestBody User_ user_) {
-        user_ = new User_();
-        userServices.add(user_);
-        return new ResponseEntity<User_>(user_, HttpStatus.OK);
+    public ResponseEntity<User_> addUser(@RequestBody User_ userDto) {
+        if (userServices.findUser_ByUserEmail(userDto.getUserEmail()) != null) {
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
+
+        User_ user = new User_();
+        user.setUserName(userDto.getUserName());
+        user.setUserPassword(userDto.getUserPassword());
+        user.setUserFirstName(userDto.getUserFirstName());
+        user.setUserLastName(userDto.getUserLastName());
+        user.setUserPhoneNumber(userDto.getUserPhoneNumber());
+        user.setUserEmail(userDto.getUserEmail());
+        user.setUserCreatedDate(new Date());
+        user.setUserUpdatedDate(new Date());
+
+        Role role = roleServices.findOneById(userDto.getRole().getRoleId().toString());
+        user.setRole(role);
+
+        User_ savedUser = userServices.add(user);
+        return ResponseEntity.ok(savedUser);
     }
+
+
 }
