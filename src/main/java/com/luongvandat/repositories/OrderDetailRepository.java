@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface OrderDetailRepository extends JpaRepository<OrderDetail, String> {
-    @Query(value = "insert into order_detail(price, quantity, book_id, order_id) values (?1, ?2, ?3, ?4)", nativeQuery = true)
-    OrderDetail saveOrderDetail(double price, int quantity, String bookId, String orderId);
+    @Query(value = "INSERT INTO order_detail(price, quantity, order__order_id, book_book_id) VALUES (?1, ?2, ?3, ?4)", nativeQuery = true)
+    void saveOrderDetail(double price, int quantity, String orderId, String bookId);
 }

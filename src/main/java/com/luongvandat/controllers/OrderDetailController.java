@@ -3,10 +3,10 @@ package com.luongvandat.controllers;
 import com.luongvandat.services.BookServices;
 import com.luongvandat.services.OrderDetailServices;
 import com.luongvandat.services.OrderServices;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Date;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -23,8 +23,8 @@ public class OrderDetailController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<String> addOrderDetail(@RequestParam("price") double price, @RequestParam("quantity") int quantity, @RequestParam("orderDate") Date orderDate, @RequestParam("bookTitle") String bookTitle) {
-        orderDetailServices.saveOrderDetail(price, quantity, "B007", "ORD00001");
-        return ResponseEntity.ok("SUCCESS: OrderDetail added successfully !");
+    public ResponseEntity<String> add(@RequestParam("price") double price, @RequestParam("quantity") int quantity, @RequestParam("orderId") String orderId, @RequestParam("bookTitle") String bookTitle) {
+        orderDetailServices.saveOrderDetail(price, quantity, orderId, bookServices.findBookByBookTitleIgnoreCase(bookTitle).getBookId());
+        return ResponseEntity.ok("Add order detail successfully!");
     }
 }

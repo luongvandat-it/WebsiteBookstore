@@ -1,6 +1,8 @@
 package com.luongvandat.services.impl;
 
+import com.luongvandat.entities.Book;
 import com.luongvandat.entities.OrderDetail;
+import com.luongvandat.entities.Order_;
 import com.luongvandat.repositories.OrderDetailRepository;
 import com.luongvandat.services.OrderDetailServices;
 import org.springframework.stereotype.Service;
@@ -36,7 +38,7 @@ public class OrderDetailServicesImpl implements OrderDetailServices {
     }
 
     @Override
-    public OrderDetail saveOrderDetail(double price, int quantity, String bookId, String orderId) {
-        return orderDetailRepository.saveOrderDetail(price, quantity, bookId, orderId);
+    public void saveOrderDetail(double price, int quantity, String orderId, String bookId) {
+        orderDetailRepository.saveOrderDetail(price, quantity, orderId, bookId);
     }
 }

@@ -22,6 +22,6 @@ public class OrderController {
     public ResponseEntity<String> addOrder(@RequestBody Order_ order) {
         order.setUser_(userServices.findUser_ByUserEmail(order.getUser_().getUserEmail()));
         orderServices.add(order);
-        return ResponseEntity.ok("SUCCESS: Order added successfully !");
+        return ResponseEntity.ok(order.getOrderId());
     }
 }

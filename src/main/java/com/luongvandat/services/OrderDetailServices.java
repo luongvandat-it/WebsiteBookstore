@@ -10,5 +10,6 @@ public interface OrderDetailServices {
     OrderDetail deleteById(String id);
 
     OrderDetail update(OrderDetail orderDetail);
-    OrderDetail saveOrderDetail(double price, int quantity, String bookId, String orderId);
+
+    void saveOrderDetail(double price, int quantity, String orderId, String bookId);
 }

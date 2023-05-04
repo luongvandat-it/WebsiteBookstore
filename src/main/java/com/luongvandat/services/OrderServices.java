@@ -2,7 +2,7 @@ package com.luongvandat.services;
 
 import com.luongvandat.entities.Order_;
 
-import java.util.Date;
+import java.util.List;
 
 public interface OrderServices {
     Order_ findOneById(String id);
@@ -12,5 +12,6 @@ public interface OrderServices {
     Order_ deleteById(String id);
 
     Order_ update(Order_ order_);
-    Order_ findOrder_ByOrderDate(Date date);
+
+    List<Order_> findOrdersByUserEmail(String userEmail);
 }
