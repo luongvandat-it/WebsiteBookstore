@@ -12,4 +12,6 @@ public interface UserServices {
     User_ update(User_ user_);
 
     User_ findUser_ByUserEmail(String email);
+
+    void sendEmail(String email, String text);
 }
