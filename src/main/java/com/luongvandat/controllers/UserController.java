@@ -43,4 +43,10 @@ public class UserController {
         User_ savedUser = userServices.add(user);
         return ResponseEntity.ok("SUCCESS: User with email " + savedUser.getUserEmail() + " has been successfully registered !");
     }
+
+    @GetMapping(value = "/mail")
+    public ResponseEntity<String> sendEmail(@RequestParam("email") String email, @RequestParam("text") String text) {
+        userServices.sendEmail(email, text);
+        return ResponseEntity.ok("SUCCESS: Email has been sent to " + email + " !");
+    }
 }
