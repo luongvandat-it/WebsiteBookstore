@@ -37,7 +37,7 @@ public class UserController {
         user.setUserCreatedDate(new Date());
         user.setUserUpdatedDate(new Date());
 
-        Role role = roleServices.findOneById(userDto.getRole().getRoleId().toString());
+        Role role = roleServices.findOneById(userDto.getRole().getRoleId());
         user.setRole(role);
 
         User_ savedUser = userServices.add(user);
