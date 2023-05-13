@@ -22,6 +22,7 @@ public class Book {
     private String bookTranslator;
     private double bookWeight;
     private String bookType;
+    private int bookInventory;
     private String bookLanguage;
     private String bookStatus;
     private String bookSlug;

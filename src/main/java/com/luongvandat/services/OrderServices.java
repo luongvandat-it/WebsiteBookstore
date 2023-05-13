@@ -3,6 +3,7 @@ package com.luongvandat.services;
 import com.luongvandat.entities.Order_;
 
 import java.util.List;
+import java.util.Objects;
 
 public interface OrderServices {
     Order_ findOneById(String id);
@@ -14,4 +15,6 @@ public interface OrderServices {
     Order_ update(Order_ order_);
 
     List<Order_> findOrdersByUserEmail(String userEmail);
+    Order_ findOrder_ByOrderId(String orderId);
+    Integer countOrder_By();
 }

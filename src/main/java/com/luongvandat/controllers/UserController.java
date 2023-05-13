@@ -26,6 +26,9 @@ public class UserController {
         if (userServices.findUser_ByUserEmail(userDto.getUserEmail()) != null) {
             return ResponseEntity.ok("ERROR: User with email " + userDto.getUserEmail() + " already exists.");
         }
+        if(userServices.findUser_ByUserPhoneNumber(userDto.getUserPhoneNumber())!=null){
+            return ResponseEntity.ok("ERROR: Phone number already exists.");
+        }
 
         User_ user = new User_();
         user.setUserName(userDto.getUserName());
@@ -49,4 +52,28 @@ public class UserController {
         userServices.sendEmail(email, text);
         return ResponseEntity.ok("SUCCESS: Email has been sent to " + email + " !");
     }
+    @PutMapping("/updateUser")
+    ResponseEntity<String> updateUser(@RequestBody User_ userDto){
+        if(userServices.findUser_ByUserPhoneNumber(userDto.getUserPhoneNumber())!=null){
+            return ResponseEntity.ok("ERROR: Phone number already exists.");
+        }
+        User_ user = userServices.findUser_ByUserEmail(userDto.getUserEmail());
+
+        user.setUserName(userDto.getUserName());
+        user.setUserFirstName(userDto.getUserFirstName());
+        user.setUserLastName(userDto.getUserLastName());
+        user.setUserPhoneNumber(userDto.getUserPhoneNumber());
+        Role role = roleServices.findOneById(userDto.getRole().getRoleId());
+        user.setRole(role);
+
+        userServices.update(user);
+        return ResponseEntity.ok("SUCCESS: User with email has been successfully update !");
+    }
+    @GetMapping("/deleteUser")
+    ResponseEntity<String> deleteUser(@RequestParam String email){
+        User_ user = userServices.findUser_ByUserEmail(email);
+        userServices.deleteById(user.getUserId());
+        return ResponseEntity.ok("delete user successful");
+    }
+
 }

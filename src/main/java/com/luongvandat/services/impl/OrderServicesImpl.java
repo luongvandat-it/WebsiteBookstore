@@ -6,6 +6,7 @@ import com.luongvandat.services.OrderServices;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class OrderServicesImpl implements OrderServices {
@@ -40,5 +41,15 @@ public class OrderServicesImpl implements OrderServices {
     @Override
     public List<Order_> findOrdersByUserEmail(String userEmail) {
         return orderRepository.findOrdersByUserEmail(userEmail);
+    }
+
+    @Override
+    public Order_ findOrder_ByOrderId(String orderId){
+        return orderRepository.findOrder_ByOrderId(orderId);
+    }
+
+    @Override
+    public Integer countOrder_By() {
+        return orderRepository.countOrder_By();
     }
 }

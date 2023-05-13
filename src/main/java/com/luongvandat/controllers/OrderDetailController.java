@@ -22,7 +22,7 @@ public class OrderDetailController {
 
     @GetMapping("/add")
     public ResponseEntity<String> add(@RequestParam("price") double price, @RequestParam("quantity") int quantity, @RequestParam("orderId") String orderId, @RequestParam("bookTitle") String bookTitle) {
-        orderDetailServices.saveOrderDetail(price, quantity, orderId, bookServices.findBookByBookTitleIgnoreCase(bookTitle).getBookId());
+            orderDetailServices.saveOrderDetail(price, quantity, orderId, bookServices.findBookByBookTitleIgnoreCase(bookTitle).getBookId());
         return ResponseEntity.ok("Add order detail successfully!");
     }
 }

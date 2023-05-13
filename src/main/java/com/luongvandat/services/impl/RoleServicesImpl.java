@@ -5,6 +5,8 @@ import com.luongvandat.repositories.RoleRepository;
 import com.luongvandat.services.RoleServices;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class RoleServicesImpl implements RoleServices {
     private final RoleRepository roleRepository;
@@ -33,5 +35,15 @@ public class RoleServicesImpl implements RoleServices {
     @Override
     public Role update(Role role) {
         return roleRepository.save(role);
+    }
+
+    @Override
+    public Role findRoleByRoleNameIgnoreCase(String roleName) {
+        return roleRepository.findRoleByRoleNameIgnoreCase(roleName);
+    }
+
+    @Override
+    public List<Role> findRolesBy() {
+        return roleRepository.findRolesBy();
     }
 }

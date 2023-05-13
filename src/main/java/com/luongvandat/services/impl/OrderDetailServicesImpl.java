@@ -7,6 +7,8 @@ import com.luongvandat.repositories.OrderDetailRepository;
 import com.luongvandat.services.OrderDetailServices;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class OrderDetailServicesImpl implements OrderDetailServices {
     private final OrderDetailRepository orderDetailRepository;
@@ -40,5 +42,16 @@ public class OrderDetailServicesImpl implements OrderDetailServices {
     @Override
     public void saveOrderDetail(double price, int quantity, String orderId, String bookId) {
         orderDetailRepository.saveOrderDetail(price, quantity, orderId, bookId);
+    }
+
+    @Override
+    public Integer countBookSell(String bookId) {
+        Integer count = orderDetailRepository.countBookSell(bookId);
+        return count != null ? count : 0;
+    }
+
+    @Override
+    public List<OrderDetail> findOrderDetailsByOrderId(String orderId) {
+        return orderDetailRepository.findOrderDetailsByOrderId(orderId);
     }
 }

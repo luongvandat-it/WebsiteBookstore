@@ -11,6 +11,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.util.List;
 import java.util.Properties;
 
 @Service
@@ -79,5 +80,29 @@ public class UserServicesImpl implements UserServices {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public List<User_> find10Users(int offset) {
+        return userRepository.find10Users(offset);
+    }
+
+    @Override
+    public List<User_> search10UserByPhone(String phoneNumber, int offset) {
+        return userRepository.search10UserByPhone(phoneNumber,offset);
+    }
+
+    @Override
+    public int countUser_sBy() {
+        return userRepository.countUser_sBy();
+    }
+
+    @Override
+    public User_ findUser_ByUserPhoneNumber(String phoneNumber) {
+        return userRepository.findUser_ByUserPhoneNumber(phoneNumber);
+    }
+    @Override
+    public User_ findUser_ByUserId(String userId){
+        return userRepository.findUser_ByUserId(userId);
     }
 }

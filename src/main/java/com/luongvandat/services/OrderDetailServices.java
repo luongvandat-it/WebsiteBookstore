@@ -2,6 +2,8 @@ package com.luongvandat.services;
 
 import com.luongvandat.entities.OrderDetail;
 
+import java.util.List;
+
 public interface OrderDetailServices {
     OrderDetail findOneById(String id);
 
@@ -12,4 +14,7 @@ public interface OrderDetailServices {
     OrderDetail update(OrderDetail orderDetail);
 
     void saveOrderDetail(double price, int quantity, String orderId, String bookId);
+    Integer countBookSell(String bookId);
+    List<OrderDetail> findOrderDetailsByOrderId(String orderId);
+
 }
