@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/api/orderDetails")
+@RequestMapping("/api/_orderDetails")
 public class OrderDetailController {
     private final OrderDetailServices orderDetailServices;
     private final BookServices bookServices;
@@ -21,8 +21,8 @@ public class OrderDetailController {
     }
 
     @GetMapping("/add")
-    public ResponseEntity<String> add(@RequestParam("price") double price, @RequestParam("quantity") int quantity, @RequestParam("orderId") String orderId, @RequestParam("bookTitle") String bookTitle) {
-        orderDetailServices.saveOrderDetail(price, quantity, orderId, bookServices.findBookByBookTitleIgnoreCase(bookTitle).getBookId());
+    public ResponseEntity<String> add(@RequestParam("price") double price, @RequestParam("quantity") int quantity, @RequestParam("orderId") String orderId, @RequestParam("bookId") String bookId) {
+        orderDetailServices.saveOrderDetail(price, quantity, orderId, bookId);
         return ResponseEntity.ok("Add order detail successfully!");
     }
 }
