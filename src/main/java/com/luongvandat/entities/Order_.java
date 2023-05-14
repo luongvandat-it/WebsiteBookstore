@@ -2,9 +2,7 @@ package com.luongvandat.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import java.util.Date;
 import java.util.Set;
@@ -23,14 +21,8 @@ public class Order_ {
     private String orderStatus;
     @ManyToOne
     private User_ user_;
-
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "order_")
     private Set<Transaction_> transactions;
-
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "order_")
     private Set<OrderDetail> orderDetails;
 }

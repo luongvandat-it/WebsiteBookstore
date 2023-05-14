@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 
 @RestController
-//@CrossOrigin(origins = "*")
-@CrossOrigin(origins = "http://localhost:3000/",methods = {RequestMethod.GET, RequestMethod.POST})
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/user_s")
 public class UserController {
     private final UserServices userServices;
