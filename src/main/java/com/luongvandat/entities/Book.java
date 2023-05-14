@@ -2,7 +2,9 @@ package com.luongvandat.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.Date;
 import java.util.Set;
@@ -36,8 +38,14 @@ public class Book {
     private Author author;
     @ManyToOne
     private Supplier supplier;
-    @OneToMany(mappedBy = "book")
+
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @OneToMany(mappedBy = "book", fetch = FetchType.LAZY)
     private Set<Comment> comments;
-    @OneToMany(mappedBy = "book")
+
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @OneToMany(mappedBy = "book", fetch = FetchType.EAGER)
     private Set<OrderDetail> orderDetails;
 }
